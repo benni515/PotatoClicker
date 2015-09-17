@@ -40,9 +40,11 @@ function activatesales() {
 	if (h.style.color == "red") {
 		h.style.color = "green";
 		document.getElementById("activatesales").innerHTML = "Disable Sales";	
+		sellactive = true;
 	} else {
 		document.getElementById("activatesales").innerHTML = "Enable Sales";
 		h.style.color = "red";
+		sellactive = false;
 	}
 }
 
@@ -53,17 +55,19 @@ function potatoexhange() {
 	}, 60000);
 }
 
-function plus1(thecost, theplus, name) {
+function plus1(thecost, theplus, name, owned) {
 	if (money >= thecost) {
 		money -= thecost;
 		thecost = thecost * 1.2;
 		potatoespersec += theplus;
+		owned += 1;
 		document.getElementById(name).innerHTML = "Cost : " + thecost.toFixed(1) + "$";
 		document.getElementById("potatoespersec").innerHTML = "Potato per/sec : " + potatoespersec.toFixed(1);
 		document.getElementById("money").innerHTML = "Money : " + money.toFixed(1) + "$";
-		return thecost;
+		document.getElementById(name + "owned").innerHTML = owned;
+		return [thecost, owned];
 	} else {
-		return thecost;
+		return [thecost, owned];
 	}
 
 }

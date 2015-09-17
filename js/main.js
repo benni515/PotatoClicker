@@ -6,10 +6,11 @@ var potatoessoldperclick;
 var money;
 var moneypersec;
 var potatoexhangerate;
-var Peasent;
+var Peasant;
 var Oldfarmer;
 var Youngfarmer;
 var Potatofarm;
+var sellactive;
 
 ///////////////////////////
 function init() {
@@ -20,16 +21,17 @@ function init() {
 	money = 0;
 	moneypersec = 0;
 	potatoexhangerate = 0.5;
+	sellactive = true;
 	document.getElementById("potatoes").innerHTML = "Potatoes : " + potatoes.toFixed(1);
 	document.getElementById("potatoespersec").innerHTML = "Potato per/sec : " + potatoespersec.toFixed(1);
-	document.getElementById("money").innerHTML = "Money : " + money + "$";
-	document.getElementById("moneypersec").innerHTML = "Money per/sec: " + moneypersec + "$";
+	document.getElementById("money").innerHTML = "Money : " + money.toFixed(1) + "$";
+	document.getElementById("moneypersec").innerHTML = "Potato sold per/sec: " + moneypersec + "$";
 	document.getElementById("sellpotatoechange").innerHTML = "Sell potato : " + potatoexhangerate.toFixed(1) + "$" ;
 	document.getElementById("sellpotato").innerHTML = "Sell " + potatoessoldperclick + " potatoes";
 	update();
 	timersold();
 	potatoexhange();
-	Peasent = manifactorcreate("Peasent", 20, 0.1, "Only knows potatoes, potatoes is life.", 0);
+	Peasant = manifactorcreate("Peasant", 20, 0.1, "Only knows potatoes, potatoes is life.", 0);
 	Oldfarmer = manifactorcreate("Old Farmer", 200, 1, "That old farmer who works really slow.", 0);
 	Youngfarmer = manifactorcreate("Young Farmer", 500, 2.5, "Atleast better than the old farmer.", 0);
 	Potatofarm = manifactorcreate("Potato farm", 1000, 5, "Outdoor good place to grow potatoes.", 0);
@@ -64,7 +66,11 @@ function manifactorcreate(name,cost,potatoepersec,description,owned) {
 	btn.className="myButton";
 	btn.style.cssText = "margin-top: 5px; margin-right: 5px;";
 	var namefunction = "plus1";
-	btn.onclick = function(){ cost = window[namefunction](cost, potatoepersec, name)};
+	btn.onclick = function(){ 
+		var stuff = window[namefunction](cost, potatoepersec, name,owned);
+		cost = stuff[0];
+		owned = stuff[1];
+	};
 	var btn2 = document.createElement('button');
 	var t2 = document.createTextNode('Buy 10');
 	btn2.appendChild(t2);
@@ -74,6 +80,8 @@ function manifactorcreate(name,cost,potatoepersec,description,owned) {
 	var h1owned = document.createElement('h1');
 	var textnode1 = document.createTextNode(owned);
 	h1owned.appendChild(textnode1);
+	h1owned.className = "potatoestext";
+	h1owned.id = name + "owned";
 	div1.appendChild(h2);
 	div1.appendChild(p);
 	div1.appendChild(p2);
@@ -91,5 +99,10 @@ function update() {
 	setInterval(function(){
 		potatoes += +((potatoespersec/10).toFixed(2));
 		document.getElementById("potatoes").innerHTML = "Potatoes : " + potatoes.toFixed(1);
+		if (moneypersec/10 <= potatoes && sellactive) {
+			money += +(((moneypersec/10) * potatoexhangerate).toFixed(3));
+			potatoes -= +((moneypersec/10).toFixed(2));
+			document.getElementById("money").innerHTML = "Money : " + money.toFixed(1) + "$";
+		};
 	}, 100);
 }
