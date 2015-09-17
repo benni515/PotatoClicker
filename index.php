@@ -16,12 +16,15 @@
 	<div class="container">
 		<div class="left">
 			<h1 class="lefth1"> Distribution </h1>
+			<div id="Distribution">
+				
+			</div>
 		</div>
 		<div class="middle">
 			<h1 id="money" class="potatoestext"></h1>
-			<h2 id="moneypersec" class="moneytextmoney"></h2>
+			<h3 id="moneypersec" class="moneytextmoney"></h3>
 			<h1 id="potatoes" class="potatoestext"></h1>
-			<h2 id="potatoespersec" class="potatoestext"></h2>
+			<h3 id="potatoespersec" class="potatoestext"></h3>
 			<div class="potatoContainer">
 				<img src="img/potato.png" class="potato" onmousedown="clickpotato(this)" onmouseover="clickpotatohover(this)" onmouseout="clickpotatoout(this)" onmouseUp="clickpotatohover(this)">
 			</div>
