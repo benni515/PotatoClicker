@@ -1,0 +1,126 @@
+@import url(https://fonts.googleapis.com/css?family=Passion+One:700);
+@font-face {
+    font-family: 'Passion One', cursive;
+}
+p, h1,h2,h3 {
+	font-family: 'Passion One', cursive;
+	margin: 0;
+}
+html, body{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.myButton {
+	-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #a73f2d;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	border-radius: 5px;
+	text-shadow:0px 2px 0px black;
+}
+.myButton:hover {
+	background-color:#b34332;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.potato {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.potatoestext {
+	display: block;
+	text-align: center;
+	margin: 8px;
+}
+.left{
+	min-width: 30%;
+	/*float: left;*/
+	background-color: #a73f2d;
+	height: 100vh;
+}
+.middle {
+	min-width: 40%;
+	/*float: left;*/
+	padding-top: 7%;
+}
+.right {
+	min-width: 30%;
+	/*float: left;*/
+	background-color: #a73f2d;
+	height: 100vh;
+	overflow-y:auto;
+}
+.container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+.potatoContainer {
+	width: 100%;
+	height: 200px;
+}
+.moneytextmoney {
+	display: block;
+	text-align: center;
+	color: green;
+	margin: 8px;
+}
+.lefth1 {
+	margin: 0;
+	background-color: #b54b3a;
+	display: block;
+	text-align: center;
+	color: #4C1A00;
+}
+.righth1 {
+	margin: 0;
+	background-color: #b54b3a;
+	display: block;
+	text-align: center;
+	color: #4C1A00;
+}
+.buttonmid {
+	text-align: center;
+}
+
+.manufactoring {
+	border: 2px solid black;
+	border-radius: 5px;
+	width: 95%;
+	height: 100px;
+	margin: 2.5%;
+	background-color: #b54b3a;
+}
+.h2manufactoring {
+	font-size: 24px;
+	text-align: left;
+}
+
+.descriptionText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.divmanufactoring {
+	width: 50%;	
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
