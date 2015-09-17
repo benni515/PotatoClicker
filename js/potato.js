@@ -69,5 +69,20 @@ function plus1(thecost, theplus, name, owned) {
 	} else {
 		return [thecost, owned];
 	}
+}
 
+function sell1(thecost, theplus, name, owned) {
+	if (money >= thecost) {
+		money -= thecost;
+		thecost = thecost * 1.2;
+		moneypersec += theplus;
+		owned += 1;
+		document.getElementById(name).innerHTML = "Cost : " + thecost.toFixed(1) + "$";
+		document.getElementById("moneypersec").innerHTML = "Potato sold per/sec: " + moneypersec.toFixed(1) + "$";
+		document.getElementById("money").innerHTML = "Money : " + money.toFixed(1) + "$";
+		document.getElementById(name + "owned").innerHTML = owned;
+		return [thecost, owned];
+	} else {
+		return [thecost, owned];
+	}
 }
